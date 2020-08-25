@@ -6,7 +6,8 @@ while getopts ":mt" opt; do
   case ${opt} in
     m ) # process option m
       echo "Let's make a PACSCRIPT"
-      echo "$(curl https://raw.githubusercontent.com/Henryws/pacstall/1.0.4-Celeste/misc/APP)" > /tmp/PACSCRIPTtmp
+      DATE=$(date)
+      curl https://raw.githubusercontent.com/Henryws/pacstall/1.0.4-Celeste/misc/APP > /tmp/PACSCRIPT-$DATE
       ;;
     t ) # process option t
       ;;
