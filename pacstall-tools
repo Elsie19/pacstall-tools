@@ -1,4 +1,7 @@
 #!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+BLUE='\033[1;34m'
 while getopts ":mt" opt; do
   case ${opt} in
     m ) # process option m
