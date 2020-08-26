@@ -8,6 +8,11 @@ while getopts ":mt" opt; do
       echo "Let's make a PACSCRIPT"
       DATE=$(date)
       curl https://raw.githubusercontent.com/Henryws/pacstall/1.0.4-Celeste/misc/APP > /tmp/PACSCRIPT-$DATE
+      if [[ $EDITOR -ne 0 ]] ; then
+      $EDITOR /tmp/PACSCRIPT-$DATE
+      else
+      $VISUAL /tmp/PACSCRIPT-$DATE
+      fi
       ;;
     t ) # process option t
       ;;
