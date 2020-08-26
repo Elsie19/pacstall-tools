@@ -16,7 +16,7 @@ while getopts ":mt" opt; do
       ;;
     t ) # process option t
       ;;
-    \? ) echo "Usage: cmd [-h] [-t]"
+    \? ) echo "Usage: pacstall-tools [-m] [-t]"
       ;;
   esac
 done
