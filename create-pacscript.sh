@@ -21,3 +21,7 @@ printf "how do you build? "
 read -r BUILD
 printf "how do you install? (put `sudo porg -lp $NAME "make install"` if unsure) "
 read -r INSTALL
+echo <<EOF
+name=$(echo \"$NAME\")
+pkgname=$(echo \"$PKGNAME\")
+url=$(echo \"$URL\")
