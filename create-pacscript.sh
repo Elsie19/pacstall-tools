@@ -25,3 +25,4 @@ echo <<EOF
 name=$(echo \"$NAME\")
 pkgname=$(echo \"$PKGNAME\")
 url=$(echo \"$URL\")
+license=$(echo \"$LICENSE\")
