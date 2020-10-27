@@ -25,7 +25,6 @@ printf "how do you build? "
 read -r BUILD
 printf "how do you install? (put `sudo porg -lp $NAME "make install"` if unsure) "
 read -r INSTALL
-curl https://raw.githubusercontent.com/Henryws/pacstall-tools/master/app.pacscript > /tmp/
 echo <<EOF > $(pwd)/$NAME.pacscript
 name=$NAME
 pkgname=$PKGNAME
