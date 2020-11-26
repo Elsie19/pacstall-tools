@@ -27,4 +27,4 @@ sudo chown -R $USER:$USER usr/share/pacstall/scripts
 chmod +x usr/share/pacstall/scripts/*
 mkdir -p var/log/pacstall_installed
 echo "Done"
-dpkg-deb --build ../pacstall-$VERSION
+cd .. && dpkg-deb --build pacstall-$VERSION
