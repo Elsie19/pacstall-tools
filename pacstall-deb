@@ -1,0 +1,30 @@
+#!/bin/bash
+printf "What version is this? "
+read -r VERSION
+mkdir pacstall-$VERSION
+cd pacstall-$VERSION
+mkdir DEBIAN
+echo "Package: pacstall
+Version: $VERSION
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Maintainer: hwengerstickel@pm.me
+Description: Aur for Ubuntu
+Depends: curl, wget, porg" > DEBIAN/control
+
+mkdir bin
+curl -s https://github.com/Henryws/pacstall/raw/master/pacstall > bin/pacstall
+chmod +x bin/pacstall
+
+mkdir -p usr/share/pacstall/{repo,scripts}
+echo "Henryws/pacstall-programs" > usr/share/pacstall/repo/pacstallrepo.txt
+for i in {change-repo.sh,search.sh,download.sh,install-local.sh}; do 
+wget -q -N https://raw.githubusercontent.com/Henryws/pacstall/master/misc/scripts/$i -P usr/share/pacstall/scripts 2>/dev/null
+done
+sudo chown -R $USER:$USER usr/share/pacstall/scripts
+chmod +x usr/share/pacstall/scripts/*
+mkdir -p var/log/pacstall_installed
+echo "Done"
+dpkg-deb --build ../pacstall-$VERSION
