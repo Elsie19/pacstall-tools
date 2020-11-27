@@ -23,7 +23,6 @@ echo "Henryws/pacstall-programs" > usr/share/pacstall/repo/pacstallrepo.txt
 for i in {change-repo.sh,search.sh,download.sh,install-local.sh}; do 
 wget -q -N https://raw.githubusercontent.com/Henryws/pacstall/master/misc/scripts/$i -P usr/share/pacstall/scripts 2>/dev/null
 done
-sudo chown -R $USER:$USER usr/share/pacstall/scripts
 chmod +x usr/share/pacstall/scripts/*
 mkdir -p var/log/pacstall_installed
 echo "Done"
