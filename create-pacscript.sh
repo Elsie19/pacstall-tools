@@ -19,14 +19,13 @@ printf "What does $NAME break? (if any) "
 read -r BREAKS
 printf "give a description "
 read -r DESC
-printf "how do you prepare? (put `true` if unsure) "
+printf "how do you prepare $NAME? (put true if unsure) "
 read -r PREPARE
-printf "how do you build? "
+printf "how do you build $NAME? "
 read -r BUILD
-printf "how do you install? (put `sudo porg -lp $NAME "make install"` if unsure) "
+printf "how do you install? (put sudo porg -lp name make install if unsure) "
 read -r INSTALL
-echo <<EOF > $(pwd)/$NAME.pacscript
-name=$NAME
+echo "name=$NAME
 pkgname=$PKGNAME
 version=$VERSION
 url=$URL
@@ -36,16 +35,13 @@ depends=$DEPS
 gives=$GIVES
 breaks=$BREAKS
 description=$DESC
-
 prepare() {
 $PREPARE
 }
-
 build() {
 $BUILD
 }
-
 install() {
 $INSTALL
-}
-EOF
+}" > $NAME.pacscript
+exit
