@@ -1,8 +1,7 @@
 #!/bin/bash
 printf "name of package? "
 read -r NAME
-printf "command to execute $NAME? "
-read -r PKGNAME
+PKGNAME=$NAME
 printf "version (put 1.0 if unsure) "
 read -r VERSION
 printf "url? (must end in zip, tar.xz, or git) "
@@ -23,7 +22,7 @@ printf "how do you prepare $NAME? (put true if unsure) "
 read -r PREPARE
 printf "how do you build $NAME? "
 read -r BUILD
-printf "how do you install? (put sudo porg -lp name make install if unsure) "
+printf "how do you install? (put sudo make install DESTDIR=/usr/src/pacstall/$NAME if unsure) "
 read -r INSTALL
 echo "name=$NAME
 pkgname=$PKGNAME
@@ -44,4 +43,5 @@ $BUILD
 install() {
 $INSTALL
 }" > $NAME.pacscript
+echo "The next steps would be to add a hash"
 exit
