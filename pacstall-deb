@@ -21,7 +21,7 @@ chmod +x bin/pacstall
 
 mkdir -p usr/share/pacstall/{repo,scripts}
 echo "Henryws/pacstall-programs" > usr/share/pacstall/repo/pacstallrepo.txt
-for i in {change-repo.sh,search.sh,download.sh,install-local.sh}; do 
+for i in {change-repo.sh,search.sh,download.sh,install-local.sh,upgrade.sh}; do 
 wget -q -N https://raw.githubusercontent.com/Henryws/pacstall/master/misc/scripts/$i -P usr/share/pacstall/scripts 2>/dev/null
 done
 wget -q -N https://github.com/Henryws/pacstall/raw/master/misc/pacstall.8.gz -P usr/share/man/man8 2>/dev/null
