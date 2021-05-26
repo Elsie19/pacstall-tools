@@ -13,7 +13,7 @@ Architecture: all
 Essential: no
 Maintainer: hwengerstickel@pm.me
 Description: Aur for Ubuntu
-Depends: curl, wget, unzip, build-essentials" > DEBIAN/control
+Depends: curl, wget, unzip, build-essential" > DEBIAN/control
 
 mkdir bin
 curl -s https://github.com/Henryws/pacstall/raw/master/pacstall > bin/pacstall
